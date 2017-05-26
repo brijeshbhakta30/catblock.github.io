@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle collapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" [routerLink]="['/']" class="navbar-brand">
+          <span class="symbol">
+            <img src="assets/images/logo.png">
+          </span>
+        <span class="logotype">CatBlock</span>
+      </a>
+    </div>
+    <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a [routerLink]="['/']" routerLinkActive="active">Home</a>
+        </li>
+        <li><a [routerLink]="['/blog-posts']" routerLinkActive="active">Blog</a>
+        </li>
+        <li><a href="https://catblock.tenderapp.com/">Help &amp; Support</a>
+        </li>
+        <li><a [routerLink]="['/privacy']" routerLinkActive="active">Privacy</a>
+        </li>
+        <li><a href="mailto:catblockteam@gmail.com">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
