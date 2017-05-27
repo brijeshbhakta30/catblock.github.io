@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
+import _ from 'lodash';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -7,7 +8,6 @@ import { Post } from './post';
 
 @Injectable()
 export class PostService {
-  // private postsPath = 'https://raw.githubusercontent.com/johnpapa/angular-tour-of-heroes/master';
   private postsPath = 'http://localhost:4040/posts';
   // List of posts file names
   private postsUrl = [
@@ -69,9 +69,14 @@ export class PostService {
     return Promise.resolve(this.posts.filter(post => post.isPublished));
   }
 
-  getPost(id: number): Promise<Post> {
-    return this.getPosts()
-      .then(posts => posts.find(post => post.id === id));
+  getPost(id: number): Post {
+    // return this.getPosts()
+    //   .then(posts => posts.find(post => post.id === id));
+    if (typeof id === 'string') {
+      id = parseInt(id, 10);
+    }
+    return _.find(this.posts, { id });
+
   }
 
   private handleError(error: any): Promise<any> {

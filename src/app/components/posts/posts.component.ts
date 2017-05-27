@@ -7,7 +7,7 @@ import { PostService } from './post.service';
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
   posts: Post[];
@@ -30,12 +30,7 @@ export class PostsComponent implements OnInit {
     this.getPosts();
   }
 
-  onSelect(blog: Post): void {
-    this.selectedPost = blog;
-  }
-
-  gotoDetail(): void {
-    this.router.navigate(['/posts']);
-    // this.router.navigate(['/posts', this.selectedPost.id]);
+  gotoDetail(post: Post): void {
+    this.router.navigate([`/blog-posts/${post.id}`]);
   }
 }
