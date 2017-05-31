@@ -7,7 +7,7 @@
         <p class="smaller">You can use CatBlock as a standalone ad blocking extension as well!</p>
         <p class="small">Available for Google Chrome, Opera and Mozilla Firefox desktop browsers.</p>
         <div class="clearfix">
-          <a id="downloadbtn" class="btn btn-success btn-lg"></a>
+          <a id="downloadbtn" [ngClass]="{'btn-success': this.isBrowserSupported, 'btn-failure': !this.isBrowserSupported}" class="btn btn-lg" (click)="downloadButtonClick()">{{ downloadButtonText }}</a>
         </div>
       </div>
       <div id="rightrow" class="col-xs-4">
